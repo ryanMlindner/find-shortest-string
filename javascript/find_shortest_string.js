@@ -16,6 +16,8 @@ function findShortestString(arr) {
 
 if (require.main === module) {
   // add your own tests in here
+  console.log("Ex: ''");
+  console.log("=>", findShortestString(['dd', '', 'ddd', 'ss']))
   console.log("Expecting: 'a'");
   console.log("=>", findShortestString(['aaa', 'a', 'bb', 'ccc']));
 
@@ -30,6 +32,18 @@ if (require.main === module) {
   console.log("=>", findShortestString(['flower', 'juniper', 'lily', 'dadelion']));
 
   // BENCHMARK HERE
+  shortInput = ['abd', 'ddd', 'dda', 'f']
+  longInput = []
+  for (let index = 0; index < 1000; index++) {
+    longInput.push("repetitive");
+  }
+  startTime = Date.now();
+  for (let index = 0; index < 1000; index++) {
+    findShortestString(shortInput);
+    findShortestString(longInput);
+  }
+  averageRun = (Date.now() - startTime) / 2000;
+  console.log("average ms: " + averageRun);
 }
 
 module.exports = findShortestString;
